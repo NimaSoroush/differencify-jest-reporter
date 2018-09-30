@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reporter getTestResults includes item in results if snapshot file exists 1`] = `
+Array [
+  Object {
+    "currentImagePath": "../__image_snapshots__/a relative path.png",
+    "diffPath": "../__image_snapshots__/a relative path.png",
+    "snapshotPath": "../__image_snapshots__/a relative path.png",
+    "status": "passed",
+    "testName": "Differencify test",
+  },
+]
+`;

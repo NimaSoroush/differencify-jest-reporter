@@ -1,0 +1,63 @@
+{
+  "name": "differencify-jest-reporter",
+  "version": "0.0.1",
+  "description": "A Jest reporter for Differencify",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "npm run build",
+    "build": "babel src --source-maps --out-dir dist --ignore '**/*.test.js'",
+    "pretest": "npm run lint",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:NimaSoroush/differencify-jest-reporter.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "Perceptual diffing tool",
+    "Visual test",
+    "Nodejs",
+    "Chrome",
+    "ChromeHeadless",
+    "Puppeteer",
+    "Jest"
+  ],
+  "author": "Nima Soroush",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.4.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-jest": "^23.2.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prefer-object-spread": "^1.2.1",
+    "eslint-plugin-react": "7.11.0",
+    "jest": "^23.5.0",
+    "jest-cli": "^23.5.0"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "fs": "0.0.2",
+    "pkg-dir": "2.0.0"
+  },
+  "jest": {
+    "rootDir": "src",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "engines": {
+    "node": ">=8.9"
+  }
+}
