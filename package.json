@@ -1,6 +1,6 @@
 {
   "name": "differencify-jest-reporter",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A Jest reporter for Differencify",
   "main": "dist/index.js",
   "scripts": {
@@ -42,6 +42,9 @@
     "eslint-plugin-react": "7.11.0",
     "jest": "^23.5.0",
     "jest-cli": "^23.5.0"
+  },
+  "peerDependencies": {
+    "differencify": "1.4.4"
   },
   "dependencies": {
     "chalk": "^2.4.1",

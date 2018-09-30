@@ -37,7 +37,7 @@ module.exports = class DifferencifyReporter {
 
   getTestResults(testResults) {
     return testResults.testResults
-      .map((result) => { //
+      .map((result) => {
         const { fullName: testName, status } = result;
         const snapshotsDir = getSnapshotsDir({ testPath: testResults.testFilePath, isJest: this.options.isJest });
         const snapshotPath = getSnapshotPath(snapshotsDir, { testName, imageType: this.options.imageType });
