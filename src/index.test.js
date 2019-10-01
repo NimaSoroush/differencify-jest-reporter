@@ -34,6 +34,7 @@ describe('Reporter', () => {
     expect('reportTypes' in reporter.options).toBe(true);
     expect('imageType' in reporter.options).toBe(true);
     expect('debug' in reporter.options).toBe(true);
+    expect('failedOnly' in reporter.options).toBe(true);
   });
   it('overrides default options', () => {
     const options = {
@@ -43,12 +44,14 @@ describe('Reporter', () => {
       },
       imageType: 'jpg',
       debug: true,
+      failedOnly: true,
     };
     const reporter = new Reporter(globalConfig, options);
     expect(reporter.options.reportPath).toBe(options.reportPath);
     expect(reporter.options.reportTypes).toBe(options.reportTypes);
     expect(reporter.options.imageType).toBe(options.imageType);
     expect(reporter.options.debug).toBe(options.debug);
+    expect(reporter.options.failedOnly).toBe(options.failedOnly);
   });
   it('enables the logger if debug is true', () => {
     // eslint-disable-next-line no-new
@@ -70,6 +73,10 @@ describe('Reporter', () => {
           fullName: 'Differencify test',
           status: 'passed',
         },
+        {
+          fullName: 'Differencify test 2',
+          status: 'failed',
+        },
       ],
     };
     it('includes item in results if snapshot file exists', () => {
@@ -84,6 +91,15 @@ describe('Reporter', () => {
       const reporter = new Reporter(globalConfig);
       const reporterTestResults = reporter.getTestResults(testResults);
       expect(reporterTestResults).toEqual([]);
+    });
+    it('output only failed results if failingOnly is true', () => {
+      fs.existsSync.mockImplementation(() => true);
+      path.relative.mockImplementation(() => '../__image_snapshots__/a relative path.png');
+      const reporter = new Reporter(globalConfig, {
+        failedOnly: true,
+      });
+      const reporterTestResults = reporter.getTestResults(testResults);
+      expect(reporterTestResults).toMatchSnapshot();
     });
   });
   describe('onRunComplete', () => {

@@ -31,6 +31,10 @@ Jest Config:
 
 Logs the output to consol
 
+### failedOnly: boolean
+
+Only include failed tests in report
+
 ### reportPath: string
 
 Report directory relative to root of project
@@ -47,6 +51,7 @@ File name for generating a html report and json
       'differencify-jest-reporter',
       {
         debug: true,
+        failedOnly: false,
         reportPath: 'differencify_reports',
         reportTypes: {
           html: 'index.html',

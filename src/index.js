@@ -26,6 +26,7 @@ module.exports = class DifferencifyReporter {
         imageType: 'png',
         debug: true,
         isJest: true,
+        failedOnly: false,
       },
       options,
     );
@@ -53,7 +54,8 @@ module.exports = class DifferencifyReporter {
           diffPath: fs.existsSync(diffPath) && path.relative(this.resolvedReportPath, diffPath),
         };
       })
-      .filter(result => result.snapshotPath);
+      .filter(result => result.snapshotPath)
+      .filter(result => !this.options.failedOnly || result.status === 'failed');
   }
 
   generate(results) {
