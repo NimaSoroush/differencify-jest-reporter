@@ -1,5 +1,7 @@
 
-
+## [0.0.4] - 2019-10-01
+### Added
+- Add new flag failedOnly to report only failed tests
 
 ## [0.0.3] - 2017-08-30
 ### Updated

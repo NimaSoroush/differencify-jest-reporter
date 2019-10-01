@@ -9,5 +9,24 @@ Array [
     "status": "passed",
     "testName": "Differencify test",
   },
+  Object {
+    "currentImagePath": "../__image_snapshots__/a relative path.png",
+    "diffPath": "../__image_snapshots__/a relative path.png",
+    "snapshotPath": "../__image_snapshots__/a relative path.png",
+    "status": "failed",
+    "testName": "Differencify test 2",
+  },
+]
+`;
+
+exports[`Reporter getTestResults output only failed results if failingOnly is true 1`] = `
+Array [
+  Object {
+    "currentImagePath": "../__image_snapshots__/a relative path.png",
+    "diffPath": "../__image_snapshots__/a relative path.png",
+    "snapshotPath": "../__image_snapshots__/a relative path.png",
+    "status": "failed",
+    "testName": "Differencify test 2",
+  },
 ]
 `;
